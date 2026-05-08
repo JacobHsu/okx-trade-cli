@@ -1,0 +1,25 @@
+{
+  "name": "okx-trade-cli",
+  "version": "1.0.0",
+  "description": "OKX 交易工具：支援 ETH-USDT 永續合約網格自動重建與 Volatility Breakout 雙策略監控",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobHsu/okx-trade-cli.git"
+  },
+  "keywords": [],
+  "author": "Jacob Hsu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JacobHsu/okx-trade-cli/issues"
+  },
+  "homepage": "https://github.com/JacobHsu/okx-trade-cli#readme",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cli-table3": "^0.6.5",
+    "technicalindicators": "^3.1.0"
+  }
+}

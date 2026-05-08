@@ -1,0 +1,50 @@
+name: VB Strategy Auto Trade
+
+on:
+  schedule:
+    # 每 8 小時執行一次 (UTC 00:00, 08:00, 16:00)
+    - cron: '0 0,8,16 * * *'
+  workflow_dispatch: # 允許從 GitHub Actions 介面手動觸發
+
+jobs:
+  run-vb-monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # 專案需要 Node.js >= 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install OKX Trade CLI
+        run: npm install -g @okx_ai/okx-trade-cli
+
+      - name: Setup OKX CLI Profile
+        run: |
+          # 建立 OKX CLI 所需的設定檔目錄與 TOML 檔
+          mkdir -p ~/.okx
+          cat <<EOF > ~/.okx/config.toml
+          default_profile = "demo"
+
+          [profiles.demo]
+          api_key = "${{ secrets.OKX_API_KEY }}"
+          secret_key = "${{ secrets.OKX_SECRET_KEY }}"
+          passphrase = "${{ secrets.OKX_PASSPHRASE }}"
+          demo = true
+          EOF
+
+      - name: Prepare Runtime Directory
+        run: |
+          # 確保 runtime 資料夾存在，避免腳本寫入錯誤
+          mkdir -p runtime
+
+      - name: Run VB Monitor (Auto Trade)
+        # 直接執行，若有訊號將會真實發送 API 建立或停止 Grid Bot
+        run: node scripts/vb-monitor.js

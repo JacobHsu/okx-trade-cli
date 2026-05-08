@@ -1,0 +1,14 @@
+{
+  "position": null,
+  "lastTradeTs": 0,
+  "tradesToday": 0,
+  "todayDate": "2026-05-08",
+  "gridBot": {
+    "algoId": "3546774757448257536",
+    "direction": "auto",
+    "maxPx": 2386,
+    "minPx": 2186,
+    "pnlRatio": null,
+    "ts": "2026-05-08T16:10:04.462Z"
+  }
+}

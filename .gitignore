@@ -1,0 +1,22 @@
+# Secrets
+.env
+
+# Runtime logs & state (generated during operation)
+runtime/latest-state.json
+runtime/auto-trade-state.json
+runtime/notifications.txt
+runtime/monitor-log.ndjson
+runtime/alert-log.ndjson
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+package-lock.json
+
+# IDE
+.vscode/
+.idea/

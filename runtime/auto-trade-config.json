@@ -1,0 +1,19 @@
+{
+  "enabled": true,
+  "targetInstId": "ETH-USDT-SWAP",
+  "targetBot": "first",
+  "triggers": {
+    "aboveBy": 50,
+    "belowBy": 50,
+    "noLiveOrdersChecks": 6
+  },
+  "newBot": {
+    "gridNum": 12,
+    "lever": 2,
+    "sz": 200,
+    "direction": "long",
+    "rangeHalfWidth": 100
+  },
+  "cooldownMs": 3600000,
+  "maxDailyTrades": 2
+}
